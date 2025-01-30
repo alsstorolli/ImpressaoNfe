@@ -1,0 +1,419 @@
+object FMain: TFMain
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu, biMaximize]
+  Caption = 'FMain'
+  ClientHeight = 211
+  ClientWidth = 635
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Position = poScreenCenter
+  TextHeight = 13
+  object PanelTitle: TsfPanelTitle
+    AlignWithMargins = True
+    Left = 3
+    Top = 3
+    Width = 629
+    Height = 45
+    Align = alTop
+    BevelOuter = bvNone
+    BevelWidth = 2
+    Color = 5720123
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 0
+    FonteTitulo.Charset = DEFAULT_CHARSET
+    FonteTitulo.Color = clWhite
+    FonteTitulo.Height = -16
+    FonteTitulo.Name = 'Segoe UI'
+    FonteTitulo.Style = [fsBold]
+    FonteMensagem.Charset = DEFAULT_CHARSET
+    FonteMensagem.Color = clWhite
+    FonteMensagem.Height = -12
+    FonteMensagem.Name = 'Segoe UI'
+    FonteMensagem.Style = []
+    FonteMensagemAux.Charset = DEFAULT_CHARSET
+    FonteMensagemAux.Color = clWhite
+    FonteMensagemAux.Height = -12
+    FonteMensagemAux.Name = 'Segoe UI'
+    FonteMensagemAux.Style = []
+    HeightLimite = 0
+    WidthLimite = 0
+    VisibleFixed = False
+    TituloTop = 5
+    TituloLeft = 50
+    Titulo = 'Impress'#227'o de NFe'
+    MensagemTop = 25
+    MensagemLeft = 50
+    MensagemAuxTop = 0
+    MensagemAuxLeft = 0
+    ExplicitWidth = 623
+    object imgMenu: TImage
+      Left = 10
+      Top = 7
+      Width = 32
+      Height = 32
+      Cursor = crHandPoint
+      Picture.Data = {
+        0954506E67496D61676589504E470D0A1A0A0000000D49484452000000200000
+        00200806000000737A7AF40000002B744558744372656174696F6E2054696D65
+        0053756E20322041756720323031352031373A30353A3430202D30363030AB9D
+        78EE0000000774494D4507DF0802160936B3167602000000097048597300002E
+        2300002E230178A53F760000000467414D410000B18F0BFC61050000003B4944
+        415478DAEDD3310100200C0341EA5F3454020BA1C3BD81DC925A9F2B00809180
+        DD3D19EB00AE00C9000066BE00201900C0CC1700240300003859BE2421B37CDF
+        370000000049454E44AE426082}
+      OnClick = imgMenuClick
+    end
+  end
+  object SV: TSplitView
+    AlignWithMargins = True
+    Left = 3
+    Top = 54
+    Width = 33
+    Height = 154
+    CloseStyle = svcCompact
+    CompactWidth = 33
+    Opened = False
+    OpenedWidth = 90
+    Placement = svpLeft
+    TabOrder = 1
+    ExplicitHeight = 145
+    object bCancelar: TsfButton
+      AlignWithMargins = True
+      Left = 3
+      Top = 3
+      Width = 27
+      Height = 30
+      Action = fbNone
+      Align = alTop
+      Caption = '&Cancelar'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      Glyph.Data = {
+        F6060000424DF606000000000000360000002800000018000000180000000100
+        180000000000C0060000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA
+        FAFAA9A9A95B5B5B2424240C0C0C0C0C0C2424245B5B5BA9A9A9FAFAFAFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFADADAD23232300000000000000000000000000000000000000000000
+        0000232323ADADADFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFDFDFD7474740000000000000000000000000000000000000000
+        00000000000000000000000000000000747474FDFDFDFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFF747474000000000000000000000000000000
+        000000000000000000000000000000000000000000000000000000747474FFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFADADAD00000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000ADADADFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9F9F92323230000
+        000000000000002C2C2CBEBEBE161616000000000000000000000000161616BE
+        BEBE2C2C2C000000000000000000232323F9F9F9FFFFFFFFFFFFFFFFFFFFFFFF
+        AAAAAA000000000000000000000000BEBEBEFFFFFFD3D3D31616160000000000
+        00161616D3D3D3FFFFFFBEBEBE000000000000000000000000AAAAAAFFFFFFFF
+        FFFFFFFFFFFFFFFF5A5A5A000000000000000000000000161616D3D3D3FFFFFF
+        D3D3D3161616161616D3D3D3FFFFFFD3D3D31616160000000000000000000000
+        005A5A5AFFFFFFFFFFFFFFFFFFFFFFFF27272700000000000000000000000000
+        0000161616D3D3D3FFFFFFD3D3D3D3D3D3FFFFFFD3D3D3161616000000000000
+        000000000000000000272727FFFFFFFFFFFFFFFFFFFFFFFF0D0D0D0000000000
+        00000000000000000000000000161616D3D3D3FFFFFFFFFFFFD3D3D316161600
+        00000000000000000000000000000000000D0D0DFFFFFFFFFFFFFFFFFFFFFFFF
+        0D0D0D000000000000000000000000000000000000161616D3D3D3FFFFFFFFFF
+        FFD3D3D31616160000000000000000000000000000000000000D0D0DFFFFFFFF
+        FFFFFFFFFFFFFFFF272727000000000000000000000000000000161616D3D3D3
+        FFFFFFD3D3D3D3D3D3FFFFFFD3D3D31616160000000000000000000000000000
+        00272727FFFFFFFFFFFFFFFFFFFFFFFF5A5A5A00000000000000000000000016
+        1616D3D3D3FFFFFFD3D3D3161616161616D3D3D3FFFFFFD3D3D3161616000000
+        0000000000000000005A5A5AFFFFFFFFFFFFFFFFFFFFFFFFAAAAAA0000000000
+        00000000000000BEBEBEFFFFFFD3D3D3161616000000000000161616D3D3D3FF
+        FFFFBEBEBE000000000000000000000000AAAAAAFFFFFFFFFFFFFFFFFFFFFFFF
+        F9F9F92323230000000000000000002C2C2CBEBEBE1616160000000000000000
+        00000000161616BEBEBE2C2C2C000000000000000000232323F9F9F9FFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFADADAD000000000000000000000000000000000000
+        000000000000000000000000000000000000000000000000000000000000ADAD
+        ADFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF74747400000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000747474FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFD
+        FD74747400000000000000000000000000000000000000000000000000000000
+        0000000000000000747474FDFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFADADAD2323230000000000000000000000000000
+        00000000000000000000232323ADADADFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFAFAA9A9A95B5B5B
+        2424240C0C0C0C0C0C2424245B5B5BA9A9A9FAFAFAFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+      Margin = 1
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      OnClick = bCancelarClick
+      ColorExecute = clBlue
+      ColorNormal = clBlack
+      ColorDisabled = clWhite
+      ExecuteAction = True
+      DownUp = False
+      OnlyClick = False
+      ExplicitLeft = 6
+      ExplicitWidth = 73
+    end
+    object bSair: TsfButton
+      AlignWithMargins = True
+      Left = 3
+      Top = 39
+      Width = 27
+      Height = 30
+      Action = fbExit
+      Align = alTop
+      Caption = '&Sair'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      Glyph.Data = {
+        F6060000424DF606000000000000360000002800000018000000180000000100
+        180000000000C0060000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB7B7B71C1C1C0000
+        00000000000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        1D1D1D000000000000000000000000000000000000000000000000000000FFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFF818181808080FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFD4D4D4040404000000808080FFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA8A8A8040404000000808080FFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA8A8A8
+        040404000000808080FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFF
+        FFFFFFFFFFFFFFFFFFFF00000000000000000000000000000000000000000000
+        0000000000000000000000000000000000808080FFFFFFFFFFFFFFFFFFFFFFFF
+        000000000000FFFFFFFFFFFFFFFFFFFFFFFF0000000000000000000000000000
+        00000000000000000000000000000000000000000000000000808080FFFFFFFF
+        FFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA8A8A80404040000008080
+        80FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA9A9A9040404
+        000000808080FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD4
+        D4D4040404000000808080FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFF808080808080FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF1D1D1D0000000000
+        00000000000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        B7B7B71C1C1C000000000000000000000000000000000000000000000000FFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+      Margin = 1
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      ColorExecute = clBlue
+      ColorNormal = clBlack
+      ColorDisabled = clWhite
+      ExecuteAction = True
+      DownUp = False
+      OnlyClick = False
+      ExplicitLeft = 6
+      ExplicitWidth = 73
+    end
+  end
+  object pGrid: TPanel
+    AlignWithMargins = True
+    Left = 42
+    Top = 54
+    Width = 590
+    Height = 154
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 2
+    object bGerar: TButton
+      Left = 145
+      Top = 13
+      Width = 96
+      Height = 25
+      Caption = 'Imprimir NFe'
+      TabOrder = 1
+      OnClick = bGerarClick
+    end
+    object Validation: TsfValidationSummary
+      Left = 0
+      Top = 74
+      Width = 590
+      Height = 80
+      Align = alBottom
+      BevelOuter = bvNone
+      TabOrder = 2
+      SummaryFont.Charset = DEFAULT_CHARSET
+      SummaryFont.Color = clRed
+      SummaryFont.Height = -11
+      SummaryFont.Name = 'Tahoma'
+      SummaryFont.Style = []
+      ExplicitTop = 65
+      ExplicitWidth = 584
+    end
+    object EdProtocolo: TsfEdit
+      Left = 5
+      Top = 15
+      Width = 110
+      Height = 21
+      MaxLength = 20
+      TabOrder = 0
+      Text = ''
+      OnKeyDown = EdProtocoloKeyDown
+      ColorFocus = 14745599
+      ColorTextColorFocus = clBlack
+      ColorNotFocus = clWhite
+      ColorTextNotFocus = clBlack
+      ColorDisabled = clSilver
+      ColorTextDisabled = clBlack
+      EditType = tvString
+      EditProperties.EmptyErrorMessage = 'N'#227'o pode estar vazio'
+      EditProperties.DateErrorMessage = 'Data inv'#225'lida'
+      EditProperties.ItemsErrorMessage = 'Items inv'#225'lido(s)'
+      EditProperties.ErrorColor = clRed
+      EditProperties.ErrorMessagePos = tepBelow
+      EditProperties.MinLengthErrorMessage = 'Tamanho minimo inv'#225'lido'
+      EditProperties.MaxLengthErrorMessage = 'Tamanho m'#225'ximo inv'#225'lido'
+      EditProperties.DuplicityErrorMessage = 'J'#225' cadastrado'
+      EditProperties.NegativeErrorMessage = 'Valor negativo n'#227'o permitido'
+      EditProperties.FindErrorMessage = 'N'#227'o localizado'
+      EditProperties.ShowItemsAutomatic = False
+      EditProperties.AllwaysCreateFormShow = True
+      EditProperties.FormShowType = tfsNormal
+      DecimalPlaces = 0
+      PascalCase = False
+      NegativeValue = True
+      ButtonWidth = 20
+      ButtonFocusOnClick = True
+      AllowEmpty = False
+      TitlePos = tppAbove
+      Title = 'Protocolo'
+      TitleSpacing = 5
+      ItemsMultiple = False
+      ItemsValidate = True
+      ItemsSize = 0
+      Message = 'Protocolo do pedido de venda'
+      Engine = Engine
+      GroupName = 'escopo'
+      Group = 0
+      Duplicity = tdNotCheck
+      MinLength = 0
+      ValidationSummary = Validation
+      PanelTitle = PanelTitle
+      Find = <>
+    end
+  end
+  object Engine: TSFEngine
+    EditProperties.EmptyErrorMessage = 'N'#227'o pode estar vazio'
+    EditProperties.DateErrorMessage = 'Data inv'#225'lida'
+    EditProperties.ItemsErrorMessage = 'Items inv'#225'lido(s)'
+    EditProperties.ErrorColor = clRed
+    EditProperties.ErrorMessagePos = tepBelow
+    EditProperties.MinLengthErrorMessage = 'Tamanho minimo inv'#225'lido'
+    EditProperties.MaxLengthErrorMessage = 'Tamanho m'#225'ximo inv'#225'lido'
+    EditProperties.DuplicityErrorMessage = 'J'#225' cadastrado'
+    EditProperties.NegativeErrorMessage = 'Valor negativo n'#227'o permitido'
+    EditProperties.FindErrorMessage = 'N'#227'o localizado'
+    EditProperties.ShowItemsAutomatic = False
+    EditProperties.AllwaysCreateFormShow = True
+    EditProperties.FormShowType = tfsModal
+    ButtonProperties.Font.Charset = DEFAULT_CHARSET
+    ButtonProperties.Font.Color = clWindowText
+    ButtonProperties.Font.Height = -12
+    ButtonProperties.Font.Name = 'Segoe UI'
+    ButtonProperties.Font.Style = []
+    ButtonProperties.Align = alNone
+    ButtonProperties.ShowHint = True
+    ButtonProperties.Flat = True
+    ButtonProperties.Transparent = False
+    ButtonProperties.InsertCaption = '&Incluir'
+    ButtonProperties.InsertHint = 'Incluir novo registro no cadastro'
+    ButtonProperties.EditCaption = '&Editar'
+    ButtonProperties.EditHint = 'Alterar registro'
+    ButtonProperties.NoneCaption = 'None'
+    ButtonProperties.NoneHint = 'None'
+    ButtonProperties.ReportCaption = '&Relat'#243'rio'
+    ButtonProperties.ReportHint = 'Emitir relat'#243'rio do cadastro'
+    ButtonProperties.FindCaption = '&Pesquisar'
+    ButtonProperties.FindHint = 'Pesquisar no cadastro'
+    ButtonProperties.FilterCaption = 'Fil&trar'
+    ButtonProperties.FilterHint = 'Executar filtro no cadastro'
+    ButtonProperties.DeleteCaption = '&Delete'
+    ButtonProperties.DeleteHint = 'Excluir registro'
+    ButtonProperties.ExitCaption = '&Sair'
+    ButtonProperties.ExitHint = 'Fechar a tela'
+    ButtonProperties.FormatCaption = 'For&mat'
+    ButtonProperties.FormatHint = 'Format grid columns'
+    ButtonProperties.IndexCaption = '&Ordenar'
+    ButtonProperties.IndexHint = 'Ordenar pela coluna selecionada'
+    ButtonProperties.CancelCaption = '&Cancelar'
+    ButtonProperties.CancelHint = 'Cancelar opera'#231#227'o'
+    ButtonProperties.RestoreCaption = 'Restaurar'
+    ButtonProperties.RestoreHint = 'Restaurar dados do grid'
+    ButtonProperties.SaveFormatCaption = 'Salvar Formato'
+    ButtonProperties.SaveFormatHint = 'Salvar formato do grid'
+    ButtonProperties.RestoreFormatCaption = 'Restaurar Formato'
+    ButtonProperties.RestoreFormatHint = 'Restaurar o formato do grid'
+    ButtonProperties.FindColumnCaption = 'Pesquisar Coluna'
+    ButtonProperties.FindColumnHint = 'Procurar coluna no grid'
+    IsBusy = False
+    Left = 303
+    Top = 104
+  end
+  object Conexao: TZConnection
+    ControlsCodePage = cCP_UTF16
+    Catalog = ''
+    DisableSavepoints = False
+    HostName = ''
+    Port = 0
+    Database = ''
+    User = ''
+    Password = ''
+    Protocol = 'postgresql'
+    Left = 363
+    Top = 102
+  end
+end

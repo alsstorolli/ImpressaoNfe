@@ -1,0 +1,224 @@
+unit Main;
+
+interface
+
+uses
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  IniFiles,
+  SFZeosDao,
+  System.Json,
+  ZAbstractConnection,
+  ZConnection,
+  SFEngine,
+  sfValidationSummary,
+  Vcl.StdCtrls,
+  Vcl.Mask,
+  sfEdit,
+  Vcl.Buttons,
+  sfButton,
+  Vcl.WinXCtrls,
+  Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls,
+  sfPanelTitle,
+  ControllerImpressaoNfe,
+  MidasLib;
+
+type
+  TFMain = class(TForm)
+    PanelTitle: TsfPanelTitle;
+    imgMenu: TImage;
+    SV: TSplitView;
+    bCancelar: TsfButton;
+    bSair: TsfButton;
+    pGrid: TPanel;
+    bGerar: TButton;
+    Validation: TsfValidationSummary;
+    EdProtocolo: TsfEdit;
+    Engine: TSFEngine;
+    Conexao: TZConnection;
+    procedure bGerarClick(Sender: TObject);
+    procedure EdProtocoloKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure bCancelarClick(Sender: TObject);
+    procedure imgMenuClick(Sender: TObject);
+  protected
+    procedure CreateParams(var Params: TCreateParams); override;
+  private
+    { Private declarations }
+    fArqIni:TIniFile;
+    FDao:TSFZeosDAO;
+    FEmpresa:String;
+    FUsuario:String;
+    FNome:String;
+    FProtocolo:String;
+    FControllerImpressaoNfe:TControllerImpressaoNfe;
+    function GetFileVersionStr: string;
+    procedure ProcessaParametros(Parametros: String);
+  public
+    { Public declarations }
+  end;
+
+  procedure Relatorio(Parametros: String; Debug: Boolean);
+
+  exports Relatorio;
+
+var
+  FMain: TFMain;
+
+implementation
+
+uses SFFunc, ImprimeNfe;
+
+{$R *.dfm}
+
+procedure Relatorio(Parametros: string; Debug: Boolean);
+var cMens:String;
+begin
+  FMain.ProcessaParametros(Parametros);
+  if Func.LengthStr(FMain.FProtocolo)>0 then begin
+    FMain.edProtocolo.Text:=FMain.fProtocolo;
+  end;
+  FMain.Caption:='VERSAO: '+FMain.GetFileVersionStr+' Empresa: '+FMain.fEmpresa+' Usuario: '+FMain.fUsuario+' '+FMain.fNome;
+  FMain.ShowModal;
+end;
+
+procedure CreateForm;
+begin
+  FMain := TFMain.Create(Application);
+  FImprimeNfe:=TFImprimeNfe.Create(Application);
+  FMain.FDao:=TSFZeosDAO.Create(FMain.Conexao);
+  FMain.Engine.SetDAO(FMain.FDao);
+  FMain.FControllerImpressaoNfe:=TControllerImpressaoNfe.Create(FMain.FDao,FMain.Engine);
+  FMain.fArqIni:=TIniFile.Create(Func.GetPath(Application.ExeName)+'Config.INI');
+  FMain.FDao.Connection.HostName:=Func.GetConfIni(FMain.fArqIni,'Banco Dados','Endereco');
+  FMain.FDao.Connection.Database:=Func.GetConfIni(FMain.fArqIni,'Banco Dados','Base');
+  FMain.FDao.Connection.Port:=Func.GetInt(Func.GetConfIni(FMain.fArqIni,'Banco Dados','Porta'));
+  FMain.FDao.Connection.User:=Func.GetConfIni(FMain.fArqIni,'BPL','Usuario');
+  FMain.FDao.Connection.Password:=Func.GetConfIni(FMain.fArqIni,'BPL','Senha');
+  try
+    FMain.FDao.Connect;
+  except
+    on e: Exception do begin
+      raise Exception.Create('Não foi possível conectar no servidor;Erro:'+e.Message)
+    end;
+  end;
+end;
+
+procedure DestroyForm;
+begin
+  FreeAndNil(FImprimeNfe);
+  FreeAndNil(FMain);
+end;
+
+{ TFMain }
+
+procedure TFMain.bCancelarClick(Sender: TObject);
+begin
+  EdProtocolo.Clear;
+  EdProtocolo.SetFocus;
+end;
+
+procedure TFMain.bGerarClick(Sender: TObject);
+begin
+  if Validation.IsValid(FMain,'escopo',0,True,True) then begin
+    FControllerImpressaoNfe.GeraMovimento(EdProtocolo.Text);
+//    FRelatorio.Execute(FControllerImprimeCte);
+    FImprimeNfe.Execute(FControllerImpressaoNfe);
+  end;
+end;
+
+procedure TFMain.CreateParams(var Params: TCreateParams);
+begin
+  inherited;
+  with Params do begin
+    ExStyle:=ExStyle or WS_EX_APPWINDOW;
+    WndParent:=GetDesktopWindow;
+  end;
+end;
+
+procedure TFMain.EdProtocoloKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key=VK_RETURN then
+    bGerarClick(Self);
+end;
+
+function TFMain.GetFileVersionStr: string;
+var FileName: string;
+    LinfoSize: DWORD;
+    lpdwHandle: DWORD;
+    lpData: Pointer;
+    lplpBuffer: PVSFixedFileInfo;
+    puLen: DWORD;
+
+  function DLLFileName:String;
+  begin
+    SetLength(Result,MAX_PATH);
+    GetModuleFileName(HInstance,PCHar(Result),MAX_PATH);
+    SetLength(Result,StrLen(PChar(Result)));
+  end;
+
+begin
+  Result:='';
+  FileName:=DLLFileName;
+  UniqueString(FileName);
+  LinfoSize:=GetFileVersionInfoSize(PChar(FileName), lpdwHandle);
+  if LinfoSize<>0 then begin
+    GetMem(lpData,LinfoSize);
+    try
+      if GetFileVersionInfo(PChar(FileName),lpdwHandle,LinfoSize,lpData) then
+        if VerQueryValue(lpData,'\',Pointer(lplpBuffer),puLen) then
+          Result:=Format('%d.%d.%d.%d',[HiWord(lplpBuffer.dwFileVersionMS),LoWord(lplpBuffer.dwFileVersionMS),HiWord(lplpBuffer.dwFileVersionLS),LoWord(lplpBuffer.dwFileVersionLS)]);
+    finally
+      FreeMem(lpData);
+    end;
+  end;
+end;
+
+procedure TFMain.imgMenuClick(Sender: TObject);
+begin
+  if SV.Opened then
+    sv.Close
+  else
+    SV.Open;
+end;
+
+procedure TFMain.ProcessaParametros(Parametros: String);
+var Obj:TJSONObject;
+    i:Integer;
+begin
+  if Func.LengthStr(Parametros)>0 then begin
+    Obj:=TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(Parametros),0) as TJSONObject;
+    for i:=0 to Obj.Count-1 do begin
+      if LowerCase(Obj.Get(i).JsonString.Value)='empresa' then begin
+        FMain.FEmpresa:=Obj.Get(i).JsonValue.Value;
+      end;
+      if LowerCase(Obj.Get(i).JsonString.Value)='usuario' then begin
+        FMain.FUsuario:=Obj.Get(i).JsonValue.Value;
+      end;
+      if LowerCase(Obj.Get(i).JsonString.Value)='nome' then begin
+        FMain.FNome:=Obj.Get(i).JsonValue.Value;
+      end;
+      if LowerCase(Obj.Get(i).JsonString.Value)='protocolo' then begin
+        FMain.FProtocolo:=Obj.Get(i).JsonValue.Value;
+      end;
+    end;
+    Obj.Free;
+  end;
+end;
+
+initialization
+CreateForm;
+
+finalization
+DestroyForm;
+
+end.

@@ -1,0 +1,46 @@
+unit imprimenfe;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ControllerImpressaocte, ACBrDFeReport,
+  ACBrCTeDACTEClass, ACBrCTeDACTeRLClass, ACBrBase, ACBrDFe, ACBrCTe,
+  ACBrDFeDANFeReport, ACBrNFeDANFEClass, ACBrNFeDANFeRLClass, ACBrNFe;
+
+type
+  TFImprimeCte = class(TForm)
+    ACBrCTe1: TACBrCTe;
+    ACBrCTeDACTeRL1: TACBrCTeDACTeRL;
+    ACBrNFe1: TACBrNFe;
+    ACBrNFeDANFeRL1: TACBrNFeDANFeRL;
+  private
+    { Private declarations }
+    FControllerImpressaoNfe:TControllerImpressaoNfe;
+  public
+    { Public declarations }
+    procedure Execute(ControllerImpressaoNfe:TControllerImpressaoNfe);
+  end;
+
+var
+  FImprimeNfe: TFImprimeNfe;
+
+implementation
+
+{$R *.dfm}
+
+{ TFImprimeNfe }
+
+procedure TFImprimeCte.Execute(ControllerImpressaoNfe: TControllerImpressaoNfe);
+begin
+  FControllerImpressaoNfe:=ControllerImpressaoNfe;
+  if Trim( FControllerImpressaoNfe.Movimento.Xml.xml )<>'' then begin
+     ACBrNFe1.NotasFiscais.LoadFromString(FControllerImpressaoNfe.Movimento.Xml.xml);
+     acbrNfe1.NotasFiscais.GerarNFe;
+     ACBrNFeDANFeRL1.MostraPreview:=true;
+     AcbrNfe1.NotasFiscais.Items[0].Imprimir;
+  end;
+
+end;
+
+end.

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2025/01/30 15:03:43.569,C:\fontes\BPLS\ImpressaoNfe\ImpressaoNfe.dproj=C:\fontes\BPLS\ImpressaoNfe\ImpressaoCte.dproj</Transaction>
+    <Transaction>2025/01/30 15:09:46.922,C:\fontes\BPLS\ImpressaoNfe\ControllerImpressaonfe.pas=C:\fontes\BPLS\ImpressaoNfe\ControllerImpressaocte.pas</Transaction>
+    <Transaction>2025/01/30 15:40:05.643,=C:\fontes\BPLS\ImpressaoNfe\imprimenfe.pas</Transaction>
+    <Transaction>2025/01/30 15:43:30.875,=ACBr_NFe.dcp</Transaction>
+    <Transaction>2025/01/30 15:43:30.895,=ACBr_NFeDanfeRL.dcp</Transaction>
+  </Transactions>
+</BorlandProject>
