@@ -177,14 +177,14 @@
         <DCCReference Include="ACBr_CTeDacteRL.dcp"/>
         <DCCReference Include="ACBr_NFe.dcp"/>
         <DCCReference Include="ACBr_NFeDanfeRL.dcp"/>
+        <DCCReference Include="ACBr_Serial.dcp"/>
+        <DCCReference Include="ACBr_NFeDanfeESCPOS.dcp"/>
+        <DCCReference Include="ACBr_NFeDanfeFPDF.dcp"/>
         <DCCReference Include="Main.pas">
             <Form>FMain</Form>
         </DCCReference>
         <DCCReference Include="ClasseMovimento.pas"/>
         <DCCReference Include="ClasseDependencias.pas"/>
-        <DCCReference Include="relatorio.pas">
-            <Form>FRelatorio</Form>
-        </DCCReference>
         <DCCReference Include="ClasseXml.pas"/>
         <DCCReference Include="imprimenfe.pas">
             <Form>FImprimeNfe</Form>
@@ -218,7 +218,7 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="4">
-                <DeployFile LocalName="..\..\prime\01\Win32\Release\relatorios\ImpressaoNfe\ImpressaoNfe.bpl" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\..\prime\01\Win32\Debug\relatorios\ImpressaoNfe\ImpressaoNfe.bpl" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>ImpressaoNfe.bpl</RemoteName>
                         <Overwrite>true</Overwrite>

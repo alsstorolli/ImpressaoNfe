@@ -100,7 +100,10 @@ begin
     FMain.edProtocolo.Text:=FMain.fProtocolo;
   end;
   FMain.Caption:='VERSAO: '+FMain.GetFileVersionStr+' Empresa: '+FMain.fEmpresa+' Usuario: '+FMain.fUsuario+' '+FMain.fNome;
+  FMain.ShowModal;
   FMain.GerarImpressaoGabarito;
+//  FMain.Show;
+//  FMain.bGerarClick(FMain);
 end;
 
 procedure CreateForm;
@@ -127,8 +130,10 @@ end;
 
 procedure DestroyForm;
 begin
-  FreeAndNil(FImprimeNfe);
-  FreeAndNil(FMain);
+  if Assigned(FImprimeNfe) then
+    FreeAndNil(FImprimeNfe);
+  if Assigned(FMain) then
+    FreeAndNil(FMain);
 end;
 
 { TFMain }
@@ -143,7 +148,6 @@ procedure TFMain.bGerarClick(Sender: TObject);
 begin
   if Validation.IsValid(FMain,'escopo',0,True,True) then begin
     FControllerImpressaoNfe.GeraMovimento(EdProtocolo.Text);
-//    FRelatorio.Execute(FControllerImprimeCte);
     FImprimeNfe.Execute(FControllerImpressaoNfe);
   end;
 end;
@@ -166,7 +170,7 @@ end;
 
 procedure TFMain.GerarImpressaoGabarito;
 begin
-  FControllerImpressaoNfe.GeraMovimento(EdProtocolo.Text);
+  FControllerImpressaoNfe.GeraMovimento(FMain.EdProtocolo.Text);
   FImprimeNfe.Execute(FControllerImpressaoNfe);
 end;
 

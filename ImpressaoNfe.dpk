@@ -58,13 +58,15 @@ requires
   ACBrDFeReportRL,
   ACBr_CTeDacteRL,
   ACBr_NFe,
-  ACBr_NFeDanfeRL;
+  ACBr_NFeDanfeRL,
+  ACBr_Serial,
+  ACBr_NFeDanfeESCPOS,
+  ACBr_NFeDanfeFPDF;
 
 contains
   Main in 'Main.pas' {FMain},
   ClasseMovimento in 'ClasseMovimento.pas',
   ClasseDependencias in 'ClasseDependencias.pas',
-  relatorio in 'relatorio.pas' {FRelatorio},
   ClasseXml in 'ClasseXml.pas',
   imprimenfe in 'imprimenfe.pas' {FImprimeNfe},
   ControllerImpressaonfe in 'ControllerImpressaonfe.pas';

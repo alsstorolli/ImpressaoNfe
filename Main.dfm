@@ -269,6 +269,8 @@ object FMain: TFMain
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 2
+    ExplicitWidth = 584
+    ExplicitHeight = 145
     object bGerar: TButton
       Left = 145
       Top = 13
@@ -303,6 +305,7 @@ object FMain: TFMain
       TabOrder = 0
       Text = ''
       OnKeyDown = EdProtocoloKeyDown
+      AutoTab = True
       ColorFocus = 14745599
       ColorTextColorFocus = clBlack
       ColorNotFocus = clWhite
