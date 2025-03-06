@@ -62,13 +62,15 @@ type
     FControllerImpressaoNfe:TControllerImpressaoNfe;
     function GetFileVersionStr: string;
     procedure ProcessaParametros(Parametros: String);
+    procedure GerarImpressaoGabarito;
   public
     { Public declarations }
   end;
 
   procedure Relatorio(Parametros: String; Debug: Boolean);
+  procedure ImpressaoGabarito(Parametros: String; Debug: Boolean);
 
-  exports Relatorio;
+  exports Relatorio, ImpressaoGabarito;
 
 var
   FMain: TFMain;
@@ -88,6 +90,17 @@ begin
   end;
   FMain.Caption:='VERSAO: '+FMain.GetFileVersionStr+' Empresa: '+FMain.fEmpresa+' Usuario: '+FMain.fUsuario+' '+FMain.fNome;
   FMain.ShowModal;
+end;
+
+procedure ImpressaoGabarito(Parametros: string; Debug: Boolean);
+var cMens:String;
+begin
+  FMain.ProcessaParametros(Parametros);
+  if Func.LengthStr(FMain.FProtocolo)>0 then begin
+    FMain.edProtocolo.Text:=FMain.fProtocolo;
+  end;
+  FMain.Caption:='VERSAO: '+FMain.GetFileVersionStr+' Empresa: '+FMain.fEmpresa+' Usuario: '+FMain.fUsuario+' '+FMain.fNome;
+  FMain.GerarImpressaoGabarito;
 end;
 
 procedure CreateForm;
@@ -149,6 +162,12 @@ procedure TFMain.EdProtocoloKeyDown(Sender: TObject; var Key: Word;
 begin
   if key=VK_RETURN then
     bGerarClick(Self);
+end;
+
+procedure TFMain.GerarImpressaoGabarito;
+begin
+  FControllerImpressaoNfe.GeraMovimento(EdProtocolo.Text);
+  FImprimeNfe.Execute(FControllerImpressaoNfe);
 end;
 
 function TFMain.GetFileVersionStr: string;
