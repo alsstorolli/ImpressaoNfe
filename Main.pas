@@ -101,7 +101,7 @@ begin
   end;
   FMain.Caption:='VERSAO: '+FMain.GetFileVersionStr+' Empresa: '+FMain.fEmpresa+' Usuario: '+FMain.fUsuario+' '+FMain.fNome;
   FMain.ShowModal;
-  FMain.GerarImpressaoGabarito;
+//  FMain.GerarImpressaoGabarito;
 //  FMain.Show;
 //  FMain.bGerarClick(FMain);
 end;

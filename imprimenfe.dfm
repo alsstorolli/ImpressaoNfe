@@ -49,8 +49,7 @@ object FImprimeNfe: TFImprimeNfe
     Left = 424
     Top = 152
   end
-  object ACBrNFCeDANFeFPDF1: TACBrNFCeDANFeFPDF
-    Sistema = 'Projeto ACBr - www.projetoacbr.com.br'
+  object ACBrNFeDANFeFPDF1: TACBrNFeDANFeFPDF
     MargemInferior = 8.000000000000000000
     MargemSuperior = 8.000000000000000000
     MargemEsquerda = 6.000000000000000000
@@ -68,7 +67,7 @@ object FImprimeNfe: TFImprimeNfe
     CasasDecimais.MaskvUnCom = ',0.00'
     CasasDecimais.Aliquota = 2
     CasasDecimais.MaskAliquota = ',0.00'
-    Left = 440
-    Top = 256
+    Left = 408
+    Top = 288
   end
 end
