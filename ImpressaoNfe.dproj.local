@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2025/01/30 15:03:43.000.569,C:\fontes\BPLS\ImpressaoNfe\ImpressaoNfe.dproj=C:\fontes\BPLS\ImpressaoNfe\ImpressaoCte.dproj</Transaction>
-    <Transaction>2025/01/30 15:09:46.000.922,C:\fontes\BPLS\ImpressaoNfe\ControllerImpressaonfe.pas=C:\fontes\BPLS\ImpressaoNfe\ControllerImpressaocte.pas</Transaction>
+    <Transaction>2025/01/30 15:03:43.000.569,C:\fontes\BPLS\ImpressaoNfe\ImpressaoCte.dproj=C:\fontes\BPLS\ImpressaoNfe\ImpressaoNfe.dproj</Transaction>
+    <Transaction>2025/01/30 15:09:46.000.922,C:\fontes\BPLS\ImpressaoNfe\ControllerImpressaocte.pas=C:\fontes\BPLS\ImpressaoNfe\ControllerImpressaonfe.pas</Transaction>
     <Transaction>2025/01/30 15:40:05.000.643,=C:\fontes\BPLS\ImpressaoNfe\imprimenfe.pas</Transaction>
-    <Transaction>2025/01/30 15:43:30.000.875,=ACBr_NFe.dcp</Transaction>
     <Transaction>2025/01/30 15:43:30.000.895,=ACBr_NFeDanfeRL.dcp</Transaction>
+    <Transaction>2025/01/30 15:43:30.000.875,=ACBr_NFe.dcp</Transaction>
     <Transaction>2025/03/06 15:50:52.000.247,C:\fontes\BPLS\ImpressaoNfe\relatorio.pas=</Transaction>
-    <Transaction>2025/03/06 17:12:29.000.832,=ACBr_NFeDanfeESCPOS.dcp</Transaction>
     <Transaction>2025/03/06 17:12:29.000.802,=ACBr_Serial.dcp</Transaction>
+    <Transaction>2025/03/06 17:12:29.000.832,=ACBr_NFeDanfeESCPOS.dcp</Transaction>
     <Transaction>2025/03/06 17:47:15.000.618,=ACBr_NFeDanfeFPDF.dcp</Transaction>
   </Transactions>
 </BorlandProject>
